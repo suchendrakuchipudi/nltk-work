@@ -9,13 +9,16 @@ import nltk
 from nltk import word_tokenize
 from nltk.stem.porter import PorterStemmer
 from nltk import ne_chunk
-#from nltk.probability import FreqDist
+from nltk import PunktSentenceTokenizer
 import re
 from nltk.corpus import wordnet
 from nltk.corpus import stopwords
 cachedStopWords = stopwords.words("english")
-
 from nltk.corpus import reuters
+
+
+#summary of the Corpus
+#we can find the categories, feilds, number of train and test docs for each of them.
 def collection_stats():
     # List of documents
     documents = reuters.fileids()
@@ -79,6 +82,9 @@ train_docs = list(filter(lambda doc: doc.startswith("train"),category_docs));
 test_docs=list(filter(lambda doc: doc.startswith("test"),category_docs));
 find_features(train_docs)
 
+'''i am able to filter out the names of the organizations. I am trying to separate acquirer form
+target company, I have thoughts on working on it using senetence tokenizer but i not able to move forward form here
+I can explain my thoughts dusirng the discussion whoch include using nltk.book by undertanding the mood of the senetence."
 
 
 
